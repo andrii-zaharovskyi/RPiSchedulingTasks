@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="card mx-0 my-3">
+
+    <div class="card-header display-4">Scheduled bells</div>
+    
+    <div class="card-body">
+
+        <!--Responsive for table-->
+        <div class="table-responsive">
+
+            <!--Table-->
+            <table class="table table-hover table-sm">
+
+                <!--Table head-->
+                <thead>
+                    <tr>
+                        <th>Minutes</th>
+                        <th>Hours</th>
+                        <th>Day of month</th>
+                        <th>Month</th>
+                        <th>Days of week</th>
+                        <th>Command</th>
+                        <th>Delete job</th>
+                    </tr>
+                </thead>
+                <!--Table head-->
+                <!--Table body-->
+                <tbody>
+                    {% for job in jobs %}
+                    <tr>
+                        <td>{{ job.m }}</td>
+                        <td>{{ job.h }}</td>
+                        <td>{{ job.dom }}</td>
+                        <td>{{ job.mon }}</td>
+                        <td>{{ job.dow }}</td>
+                        <td>{{ job.command }}</td>
+                        <td>
+                            <a class="btn btn-outline-danger btn-sm"
+                               href="{{ url_for('delete_job_bell', m=job.m ,h=job.h,dom=job.dom,mon=job.mon,dow=job.dow, _method='POST') }}"
+                               role="button">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <!--Table body-->
+
+            </table>
+            <!--Table-->
+        </div><!--/.table-responsive-->
+
+    </div><!--/.card-body-->
+
+</div><!--/.panel -->
+{% endblock %}

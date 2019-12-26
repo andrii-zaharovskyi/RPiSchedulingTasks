@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <title>{{ title }} - Bell RPi</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="../static/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/Corporate-Footer-Clean.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css" />
+    <link rel="shortcut icon" href="{{ url_for('static',filename='favicon.ico') }}">
+</head>
+
+<body>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-dark navbar-expand-md fixed-top bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav flex-grow-1 justify-content-between">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('bells_scheduler') }}">RPi Bells Scheduler</a></li>
+                    <!--<li class="nav-item" role="presentation"><a class="nav-link" href="#">Add</a></li>-->
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('add_job_bell') }}">Add</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <!-- Main container -->
+    <div class="container body-content">
+        {% block content %}{% endblock %}
+    </div><!-- /container -->
+
+    <!-- Footer -->
+    <footer class="page-footer fixed-bottom border-top">
+        <div class="container">
+            <div class="footer-legal">
+                <div class="d-inline-block copyright">
+                    <p>&copy; {{ year }} RPi Bells Scheduler<br /></p>
+                </div>
+                <div class="d-inline-block legal-links">
+                    <div class="d-inline-block item">
+                        <h5><a href="{{ url_for('terms_of_use') }}">Terms of Use</a></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Other Scripts -->
+    <script src="../static/lib/jquery/dist/jquery.min.js"></script>
+    <script src="../static/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/site.js" asp-append-version="true"></script>
+
+    {% block scripts %}{% endblock %}
+
+</body>
+</html>
